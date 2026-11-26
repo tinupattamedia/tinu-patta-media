@@ -88,6 +88,11 @@ nav ul a.cv{background:var(--navy);color:#fff}
 footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1px solid var(--line)}
 @media(max-width:900px){.hero .wrap,.media,.contact .wrap{grid-template-columns:minmax(0,1fr)}.grid3,.group,.leaders{grid-template-columns:minmax(0,1fr)}.steps{grid-template-columns:repeat(2,minmax(0,1fr))}nav ul{margin:0;width:100%}.plate{max-width:360px}}
 @media(max-width:600px){.fig{min-height:340px}.steps{grid-template-columns:minmax(0,1fr)}nav ul a{padding:8px 9px;font-size:14px}.person{grid-template-columns:110px minmax(0,1fr)}.person img{width:110px;height:116px}.brand small{display:none}}
+.lang{display:flex;border:2px solid var(--navy);border-radius:8px;overflow:hidden;flex:none}
+.lang button{min-width:48px;min-height:40px;border:0;background:#fff;color:var(--navy);font:700 14px Montserrat,sans-serif;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--navy);color:#fff}
+.lang button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+@media(max-width:900px){.lang{margin-left:auto}}
 </style>
 </head>
 <body>
@@ -95,13 +100,14 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
 <nav><div class="wrap">
   <a class="brand" href="#beranda"><img src="img/mark.png" alt="Logo OSC" width="80" height="46"><span>OSHER<small>SAMUDRA CREWING</small></span></a>
   <ul>
-    <li><a href="#layanan">Layanan</a></li>
-    <li><a href="#pimpinan">Pimpinan</a></li>
-    <li><a href="#alur">Alur informasi</a></li>
+    <li><a data-i18n="nav_services" href="#layanan">Layanan</a></li>
+    <li><a data-i18n="nav_leaders" href="#pimpinan">Pimpinan</a></li>
+    <li><a data-i18n="nav_flow" href="#alur">Alur informasi</a></li>
     <li><a href="#media">Media</a></li>
-    <li><a href="#kontak">Kontak</a></li>
-    <li><a class="cv" href="#kontak">Kirim CV</a></li>
+    <li><a data-i18n="nav_contact" href="#kontak">Kontak</a></li>
+    <li><a data-i18n="cv" class="cv" href="#kontak">Kirim CV</a></li>
   </ul>
+  <div class="lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="id" aria-pressed="true">ID</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
 </div></nav>
 
 <header class="band hero" id="beranda">
@@ -117,11 +123,11 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
   <div class="wrap">
     <div>
       <div class="rule"></div>
-      <h1>Awak kapal yang tepat, dari Balikpapan untuk armada Anda</h1>
-      <p>PT Osher Samudra Crewing (OSC) menempatkan awak kapal dan tenaga kerja untuk pemilik dan operator kapal. Kami membangun SDM maritim dengan visi jangka panjang, konsistensi, dan kemitraan yang dapat dipercaya.</p>
+      <h1 data-i18n="h1">Awak kapal yang tepat, dari Balikpapan untuk armada Anda</h1>
+      <p data-i18n="hero_p">PT Osher Samudra Crewing (OSC) menempatkan awak kapal dan tenaga kerja untuk pemilik dan operator kapal. Kami membangun SDM maritim dengan visi jangka panjang, konsistensi, dan kemitraan yang dapat dipercaya.</p>
       <div class="btns">
-        <a class="btn" href="#kontak">Bermitra dengan OSC</a>
-        <a class="btn ghost" href="mailto:recruitment@osc-crew.com?subject=Lamaran%20Crew%20OSC">Kirim CV</a>
+        <a data-i18n="partner" class="btn" href="#kontak">Bermitra dengan OSC</a>
+        <a data-i18n="cv" class="btn ghost" href="mailto:recruitment@osc-crew.com?subject=Lamaran%20Crew%20OSC">Kirim CV</a>
       </div>
     </div>
     <div class="plate drift"><img src="img/logo.png" alt="Logo PT Osher Samudra Crewing" width="520" height="455"></div>
@@ -130,44 +136,44 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
 
 <section class="band" id="layanan"><div class="wrap">
   <div class="rule"></div>
-  <h2>Layanan OSC</h2>
-  <p class="lead">Kami menghubungkan pemilik kapal dengan awak dan tenaga kerja yang siap bekerja, dari Balikpapan ke perairan Indonesia.</p>
+  <h2 data-i18n="svc_h">Layanan OSC</h2>
+  <p data-i18n="svc_lead" class="lead">Kami menghubungkan pemilik kapal dengan awak dan tenaga kerja yang siap bekerja, dari Balikpapan ke perairan Indonesia.</p>
   <div class="grid3">
-    <div class="card"><h3>Penempatan awak kapal</h3><p>Rekrutmen dan penempatan crew dek, mesin, dan kru pendukung sesuai kebutuhan armada dan jenis kapal Anda.</p><span class="k">KBLI 78104</span></div>
-    <div class="card"><h3>Penempatan tenaga kerja</h3><p>Penyediaan tenaga kerja untuk usaha di dalam negeri, terutama sektor maritim, pelabuhan, dan industri pendukungnya.</p><span class="k">KBLI 78101</span></div>
-    <div class="card"><h3>Pengembangan SDM maritim</h3><p>Kami memandang crew sebagai aset jangka panjang: seleksi yang cermat, pembinaan, dan hubungan kerja yang berkelanjutan.</p><span class="k">Komitmen kemitraan</span></div>
+    <div class="card"><h3 data-i18n="svc1_h">Penempatan awak kapal</h3><p data-i18n="svc1_p">Rekrutmen dan penempatan crew dek, mesin, dan kru pendukung sesuai kebutuhan armada dan jenis kapal Anda.</p><span class="k">KBLI 78104</span></div>
+    <div class="card"><h3 data-i18n="svc2_h">Penempatan tenaga kerja</h3><p data-i18n="svc2_p">Penyediaan tenaga kerja untuk usaha di dalam negeri, terutama sektor maritim, pelabuhan, dan industri pendukungnya.</p><span class="k">KBLI 78101</span></div>
+    <div class="card"><h3 data-i18n="svc3_h">Pengembangan SDM maritim</h3><p data-i18n="svc3_p">Kami memandang crew sebagai aset jangka panjang: seleksi yang cermat, pembinaan, dan hubungan kerja yang berkelanjutan.</p><span data-i18n="svc3_k" class="k">Komitmen kemitraan</span></div>
   </div>
 </div></section>
 
 <section class="band alt" id="pimpinan"><div class="wrap">
   <div class="rule"></div>
-  <h2>Pimpinan perusahaan</h2>
-  <p class="lead">OSC dipimpin langsung oleh pendirinya bersama manajemen yang menangani operasional sehari-hari.</p>
+  <h2 data-i18n="lead_h">Pimpinan perusahaan</h2>
+  <p data-i18n="lead_lead" class="lead">OSC dipimpin langsung oleh pendirinya bersama manajemen yang menangani operasional sehari-hari.</p>
   <div class="leaders">
     <div class="person"><img src="img/direktur.jpg" alt="Foto Martinus Sumule Patta" width="150" height="156" loading="lazy">
-      <div><h3>Martinus Sumule Patta</h3><div class="role">Founder &amp; Direktur</div><p>Memimpin arah usaha OSC dan grup perusahaannya di Balikpapan.</p></div></div>
+      <div><h3>Martinus Sumule Patta</h3><div data-i18n="dir_role" class="role">Founder &amp; Direktur</div><p data-i18n="dir_p">Memimpin arah usaha OSC dan grup perusahaannya di Balikpapan.</p></div></div>
     <div class="person"><img src="img/gm.jpg" alt="Foto Yustian Palayukan" width="150" height="156" loading="lazy">
-      <div><h3>Yustian Palayukan</h3><div class="role">General Manager</div><p>Mengelola operasional dan penempatan crew OSC.</p></div></div>
+      <div><h3>Yustian Palayukan</h3><div class="role">General Manager</div><p data-i18n="gm_p">Mengelola operasional dan penempatan crew OSC.</p></div></div>
   </div>
 </div></section>
 
 <section class="band" id="alur"><div class="wrap">
   <div class="rule"></div>
-  <h2>Satu cerita, tiga kanal, satu rumah</h2>
-  <p class="lead">Setiap informasi OSC mengalir dan saling bertaut: video lengkap tayang di YouTube, potongannya menjadi Reels di Instagram, dibagikan ke Facebook, dan semuanya kembali terkumpul di website ini.</p>
+  <h2 data-i18n="flow_h">Satu cerita, tiga kanal, satu rumah</h2>
+  <p data-i18n="flow_lead" class="lead">Setiap informasi OSC mengalir dan saling bertaut: video lengkap tayang di YouTube, potongannya menjadi Reels di Instagram, dibagikan ke Facebook, dan semuanya kembali terkumpul di website ini.</p>
   <div class="fig"><svg id="flowsvg" role="img" aria-label="Diagram alur: YouTube ke Instagram ke Facebook ke Website, lalu kembali"></svg></div>
   <div class="steps">
-    <div><h3>1. YouTube</h3><p>Video utuh: profil perusahaan, edukasi maritim, dan kegiatan crew.</p></div>
-    <div><h3>2. Instagram</h3><p>Reels singkat dari video yang sama, dengan tautan kembali ke video penuh.</p></div>
-    <div><h3>3. Facebook</h3><p>Reels dan postingan dibagikan ulang untuk menjangkau pemilik kapal dan komunitas.</p></div>
-    <div><h3>4. Website</h3><p>Semua kanal tampil otomatis di osc-crew.com, lengkap dengan informasi kemitraan.</p></div>
+    <div><h3>1. YouTube</h3><p data-i18n="st1">Video utuh: profil perusahaan, edukasi maritim, dan kegiatan crew.</p></div>
+    <div><h3>2. Instagram</h3><p data-i18n="st2">Reels singkat dari video yang sama, dengan tautan kembali ke video penuh.</p></div>
+    <div><h3>3. Facebook</h3><p data-i18n="st3">Reels dan postingan dibagikan ulang untuk menjangkau pemilik kapal dan komunitas.</p></div>
+    <div><h3>4. Website</h3><p data-i18n="st4">Semua kanal tampil otomatis di osc-crew.com, lengkap dengan informasi kemitraan.</p></div>
   </div>
 </div></section>
 
 <section class="band alt" id="media"><div class="wrap">
   <div class="rule"></div>
-  <h2>Kabar terbaru dari kanal OSC</h2>
-  <p class="lead">Konten di bawah ini diambil langsung dari akun resmi dan diperbarui otomatis setiap kali ada unggahan baru.</p>
+  <h2 data-i18n="media_h">Kabar terbaru dari kanal OSC</h2>
+  <p data-i18n="media_lead" class="lead">Konten di bawah ini diambil langsung dari akun resmi OSC.</p>
   <div class="media">
     <article class="chan yt">
       <header><span class="dot" style="background:#ff0000"></span><strong>YouTube</strong><a href="https://www.youtube.com/@tinupatta37" target="_blank" rel="noopener">Subscribe</a></header>
@@ -179,7 +185,7 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
         <div class="embed" data-src="https://www.instagram.com/osc.crewing/embed" data-title="Instagram @osc.crewing" data-link="https://www.instagram.com/osc.crewing/" data-name="Instagram"></div>
       </article>
       <article class="chan">
-        <header><span class="dot" style="background:#1877f2"></span><strong>Facebook</strong><a class="fbl" href="https://www.facebook.com/profile.php?id=61596451633709" target="_blank" rel="noopener">Ikuti</a></header>
+        <header><span class="dot" style="background:#1877f2"></span><strong>Facebook</strong><a class="fbl" href="https://www.facebook.com/profile.php?id=61596451633709" target="_blank" rel="noopener" data-i18n="follow">Ikuti</a></header>
         <div class="embed" id="fbembed" data-title="Facebook OSC" data-name="Facebook"></div>
       </article>
     </div>
@@ -188,27 +194,27 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
 
 <section class="band" id="grup"><div class="wrap">
   <div class="rule"></div>
-  <h2>Bagian dari grup usaha yang saling menguatkan</h2>
-  <p class="lead">OSC berjalan bersama dua perusahaan saudara di Balikpapan, membuka peluang kemitraan dan joint venture di sektor maritim, konstruksi, dan infrastruktur.</p>
+  <h2 data-i18n="grp_h">Bagian dari grup usaha yang saling menguatkan</h2>
+  <p data-i18n="grp_lead" class="lead">OSC berjalan bersama dua perusahaan saudara di Balikpapan, membuka peluang kemitraan dan joint venture di sektor maritim, konstruksi, dan infrastruktur.</p>
   <div class="group">
-    <div class="card"><h3>PT Osher Samudra Crewing</h3><p>Penempatan awak kapal dan tenaga kerja.</p><a href="https://www.instagram.com/osc.crewing/" target="_blank" rel="noopener">@osc.crewing</a></div>
-    <div class="card"><h3>PT Kartika Belantik Utara</h3><p>Konstruksi bangunan sipil: jalan, jembatan, dan gedung.</p><a href="https://www.instagram.com/kbu.19/" target="_blank" rel="noopener">@kbu.19</a></div>
-    <div class="card"><h3>CV Air Samudra Luas</h3><p>Pembekuan ikan, industri kapal, air minum, dan bahan bangunan.</p><a href="https://www.instagram.com/airsamudraluas/" target="_blank" rel="noopener">@airsamudraluas</a></div>
+    <div class="card"><h3>PT Osher Samudra Crewing</h3><p data-i18n="g1">Penempatan awak kapal dan tenaga kerja.</p><a href="https://www.instagram.com/osc.crewing/" target="_blank" rel="noopener">@osc.crewing</a></div>
+    <div class="card"><h3>PT Kartika Belantik Utara</h3><p data-i18n="g2">Konstruksi bangunan sipil: jalan, jembatan, dan gedung.</p><a href="https://www.instagram.com/kbu.19/" target="_blank" rel="noopener">@kbu.19</a></div>
+    <div class="card"><h3>CV Air Samudra Luas</h3><p data-i18n="g3">Pembekuan ikan, industri kapal, air minum, dan bahan bangunan.</p><a href="https://www.instagram.com/airsamudraluas/" target="_blank" rel="noopener">@airsamudraluas</a></div>
   </div>
 </div></section>
 
 <section class="band contact" id="kontak"><div class="wrap">
   <div>
     <div class="rule"></div>
-    <h2>Kirim CV atau ajukan kemitraan</h2>
-    <p>Pelaut dan pencari kerja: kirimkan CV beserta sertifikat Anda ke alamat di bawah. Pemilik kapal, operator, dan investor: hubungi kami lewat kanal resmi di samping.</p>
+    <h2 data-i18n="ct_h">Kirim CV atau ajukan kemitraan</h2>
+    <p data-i18n="ct_p">Pelaut dan pencari kerja: kirimkan CV beserta sertifikat Anda ke alamat di bawah. Pemilik kapal, operator, dan investor: hubungi kami lewat kanal resmi di samping.</p>
     <a class="mail" href="mailto:recruitment@osc-crew.com">recruitment@osc-crew.com</a>
-    <div class="btns"><button class="btn" id="copy" type="button">Salin alamat email</button></div>
+    <div class="btns"><button data-i18n="copy" class="btn" id="copy" type="button">Salin alamat email</button></div>
     <p style="margin-top:20px">PT Osher Samudra Crewing<br>Balikpapan, Kalimantan Timur</p>
   </div>
   <ul class="links">
     <li><a href="https://www.instagram.com/osc.crewing/" target="_blank" rel="noopener">Instagram <span>@osc.crewing</span></a></li>
-    <li><a class="fbl" href="https://www.facebook.com/profile.php?id=61596451633709" target="_blank" rel="noopener">Facebook <span>Halaman OSC</span></a></li>
+    <li><a class="fbl" href="https://www.facebook.com/profile.php?id=61596451633709" target="_blank" rel="noopener">Facebook <span data-i18n="fbpage">Halaman OSC</span></a></li>
     <li><a href="https://www.youtube.com/@tinupatta37" target="_blank" rel="noopener">YouTube <span>@tinupatta37</span></a></li>
     <li><a href="https://linkedin.com/in/tinupatta" target="_blank" rel="noopener">LinkedIn <span>Martinus S. Patta</span></a></li>
     <li><a href="https://www.instagram.com/tinu_patta/" target="_blank" rel="noopener">Founder <span>@tinu_patta</span></a></li>
@@ -219,6 +225,69 @@ footer{padding:24px max(5vw,16px);font-size:14px;color:var(--mute);border-top:1p
 
 <script>
 {
+const EN = {
+"nav_services": "Services",
+"nav_leaders": "Leadership",
+"nav_flow": "Information flow",
+"nav_contact": "Contact",
+"cv": "Send CV",
+"h1": "The right crew, from Balikpapan to your fleet",
+"hero_p": "PT Osher Samudra Crewing (OSC) supplies seafarers and manpower to shipowners, principals and ship operators. We build maritime human capital with a long-term vision, consistency and partnerships you can trust.",
+"partner": "Partner with OSC",
+"svc_h": "OSC services",
+"svc_lead": "We connect shipowners and principals with ready-to-work crew and personnel, from Balikpapan to Indonesian waters.",
+"svc1_h": "Crew placement",
+"svc1_p": "Recruitment and placement of deck, engine and support crew, matched to your fleet and vessel types.",
+"svc2_h": "Manpower placement",
+"svc2_p": "Manpower supply for businesses in Indonesia, especially the maritime, port and supporting industries.",
+"svc3_h": "Maritime human capital development",
+"svc3_p": "We see crew as a long-term asset: careful selection, continuous development and lasting working relationships.",
+"svc3_k": "Partnership commitment",
+"lead_h": "Company leadership",
+"lead_lead": "OSC is led directly by its founder, together with a management team that runs day-to-day operations.",
+"dir_role": "Founder &amp; Director",
+"dir_p": "Leads the strategic direction of OSC and its group of companies in Balikpapan.",
+"gm_p": "Manages OSC's operations and crew placement.",
+"flow_h": "One story, three channels, one home",
+"flow_lead": "Every piece of OSC information flows and connects: full videos on YouTube, short Reels on Instagram, reshared on Facebook, and all of it gathered back on this website.",
+"st1": "Full videos: company profile, maritime education and crew activities.",
+"st2": "Short Reels cut from the same videos, linking back to the full version.",
+"st3": "Reels and posts reshared to reach shipowners and the wider community.",
+"st4": "All channels come together on osc-crew.com, along with partnership information.",
+"media_h": "Latest from OSC channels",
+"media_lead": "The content below comes directly from OSC's official accounts.",
+"grp_h": "Part of a group of companies that strengthen each other",
+"grp_lead": "OSC operates alongside two sister companies in Balikpapan, opening opportunities for partnerships and joint ventures in maritime, construction and infrastructure.",
+"g1": "Crew and manpower placement.",
+"g2": "Civil construction: roads, bridges and buildings.",
+"g3": "Fish freezing, shipbuilding, drinking water and building materials.",
+"ct_h": "Send your CV or propose a partnership",
+"ct_p": "Seafarers and job seekers: send your CV and certificates to the address below. Principals, shipowners, operators and investors: reach us through our official channels.",
+"copy": "Copy email address",
+"follow": "Follow",
+"fbpage": "OSC page"
+};
+
+let LANG = 'id';
+try { LANG = localStorage.getItem('osc-lang') || ''; } catch (e) {}
+if (LANG !== 'id' && LANG !== 'en') LANG = /^id\b/i.test(navigator.language || '') ? 'id' : 'en';
+const T = {
+  id: {copied:'Email tersalin', fbSoon:'', open:'Buka ', fallback:'Umpan langsung tampil saat website dibuka di osc-crew.com. Sementara itu, buka kanalnya langsung:', copyright:'', d:['Video penuh','Reels','Bagikan ulang','osc-crew.com']},
+  en: {copied:'Email copied', fbSoon:'', open:'Open ', fallback:'Live feeds appear when the site is opened at osc-crew.com. Meanwhile, open the channel directly:', copyright:'', d:['Full video','Reels','Reshare','osc-crew.com']}
+};
+const i18nEls = [...document.querySelectorAll('[data-i18n]')];
+i18nEls.forEach(el => { el.dataset.idText = el.innerHTML; });
+const setLang = l => {
+  LANG = l;
+  document.documentElement.lang = l;
+  i18nEls.forEach(el => { const k = el.dataset.i18n; el.innerHTML = (l === 'en' && EN[k]) ? EN[k] : el.dataset.idText; });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === l)));
+  document.querySelectorAll('.fallback p').forEach(p => { p.textContent = T[l].fallback; });
+  document.querySelectorAll('.fallback .btn').forEach(a => { a.textContent = T[l].open + a.dataset.name; });
+  try { localStorage.setItem('osc-lang', l); } catch (e) {}
+  if (typeof draw === 'function') draw();
+};
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
 const FACEBOOK_PAGE = "https://www.facebook.com/profile.php?id=61596451633709";
 
 const hosted = /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent|anthropic/.test(location.hostname);
@@ -232,7 +301,7 @@ for (const el of document.querySelectorAll('.embed')) {
   if (hosted && el.dataset.src) {
     el.innerHTML = '<iframe loading="lazy" src="' + esc(el.dataset.src) + '" title="' + esc(el.dataset.title) + '" allow="encrypted-media; picture-in-picture; clipboard-write" allowfullscreen></iframe>';
   } else {
-    el.innerHTML = '<div class="fallback"><h3>' + esc(el.dataset.name) + '</h3><p>Umpan langsung tampil saat website dibuka di osc-crew.com. Sementara itu, buka kanalnya langsung:</p><a class="btn" href="' + esc(el.dataset.link) + '" target="_blank" rel="noopener">Buka ' + esc(el.dataset.name) + '</a></div>';
+    el.innerHTML = '<div class="fallback"><h3>' + esc(el.dataset.name) + '</h3><p>Umpan langsung tampil saat website dibuka di osc-crew.com. Sementara itu, buka kanalnya langsung:</p><a class="btn" href="' + esc(el.dataset.link) + '" data-name="' + esc(el.dataset.name) + '" target="_blank" rel="noopener">Buka ' + esc(el.dataset.name) + '</a></div>';
   }
 }
 
@@ -240,7 +309,7 @@ document.getElementById('yr').textContent = new Date().getFullYear();
 
 const cp = document.getElementById('copy');
 cp.addEventListener('click', async () => {
-  try { await navigator.clipboard.writeText('recruitment@osc-crew.com'); cp.textContent = 'Email tersalin'; }
+  try { await navigator.clipboard.writeText('recruitment@osc-crew.com'); cp.textContent = T[LANG].copied; }
   catch (e) { cp.textContent = 'recruitment@osc-crew.com'; }
 });
 
@@ -271,11 +340,12 @@ const draw = () => {
     const [x,y] = pos[i];
     out += '<circle cx="'+x+'" cy="'+y+'" r="'+r+'" fill="'+nd.c+'"/><circle cx="'+x+'" cy="'+y+'" r="'+(r-6)+'" fill="none" stroke="#fff" stroke-opacity=".4"/>';
     out += '<text x="'+x+'" y="'+(y+(small?5:2))+'" text-anchor="middle" font-family="Montserrat,sans-serif" font-weight="700" font-size="'+(small?13:16)+'" fill="#fff">'+nd.n+'</text>';
-    if (!small) out += '<text x="'+x+'" y="'+(y+20)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff" fill-opacity=".92">'+nd.d+'</text>';
+    if (!small) out += '<text x="'+x+'" y="'+(y+20)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" fill="#fff" fill-opacity=".92">'+T[LANG].d[i]+'</text>';
   });
   s.innerHTML = out;
 };
-const ro = new ResizeObserver(draw); ro.observe(s); draw();
+const ro = new ResizeObserver(draw); ro.observe(s);
+setLang(LANG);
 }
 </script>
 </body>
