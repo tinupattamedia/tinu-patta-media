@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+<!-- Google tag (Google Analytics) -->
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-T5CCMBXD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>OSC Crewing Balikpapan</title>
@@ -285,6 +292,7 @@ const setLang = l => {
   document.querySelectorAll('.fallback p').forEach(p => { p.textContent = T[l].fallback; });
   document.querySelectorAll('.fallback .btn').forEach(a => { a.textContent = T[l].open + a.dataset.name; });
   try { localStorage.setItem('osc-lang', l); } catch (e) {}
+  try { if (window.gtag) gtag('event', 'language_view', {language: l}); } catch (e) {}
   if (typeof draw === 'function') draw();
 };
 document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.l)));
