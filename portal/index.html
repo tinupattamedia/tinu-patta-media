@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portal OSC | PT Osher Samudra Crewing</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0b2466">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-T5CCMBXD"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());</script>
+<style>
+:root{--navy:#0b2466;--royal:#1a56b8;--gold:#c99a2e;--gold2:#e8c164;--ink:#0b1630;--mute:#4a5672;--line:#dfe5f1;--card:#f4f6fb;--bg:#fff;--ok:#1f8a4c;--warn:#b26a00;--bad:#b3261e}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--card);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:Montserrat,Inter,sans-serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(26px,4vw,34px)}h2{font-size:22px}h3{font-size:18px}
+a{color:var(--royal)}
+header{background:#fff;border-bottom:3px solid var(--gold);position:sticky;top:0;z-index:5}
+header .in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:8px 16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font:700 18px Montserrat,sans-serif}
+.brand img{height:40px;width:auto}
+.sp{flex:1}
+.who{font-size:14px;color:var(--mute)}
+.lang{display:flex;border:2px solid var(--navy);border-radius:8px;overflow:hidden}
+.lang button{min-width:44px;min-height:38px;border:0;background:#fff;color:var(--navy);font:700 13px Montserrat,sans-serif;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--navy);color:#fff}
+main{max-width:1180px;margin:0 auto;padding:24px 16px 80px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+label{display:block;font-size:14px;font-weight:600;margin-bottom:4px}
+input,select,textarea{width:100%;font:16px Inter,sans-serif;padding:11px 12px;border:1px solid #c7d0e2;border-radius:9px;background:#fff;color:var(--ink)}
+textarea{min-height:90px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:3px solid #bcd0f5;border-color:var(--royal)}
+.check{display:flex;gap:10px;align-items:flex-start;font-weight:400}
+.check input{width:20px;height:20px;margin-top:2px;flex:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:9px;border:0;background:var(--navy);color:#fff;font:600 15px Inter,sans-serif;cursor:pointer;text-decoration:none}
+.btn.gold{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#0b1630}
+.btn.line{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn.small{min-height:36px;padding:0 12px;font-size:14px}
+.btn.danger{background:#fff;color:var(--bad);border:2px solid var(--bad)}
+.btn:disabled{opacity:.55;cursor:not-allowed}
+.btn:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px}
+.tabs button{min-height:42px;padding:0 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 14px Inter,sans-serif;color:var(--navy);cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:600;background:#e8edf8;color:var(--navy)}
+.badge.ok{background:#dff3e7;color:var(--ok)}.badge.warn{background:#fff0d6;color:var(--warn)}.badge.bad{background:#fbe2e0;color:var(--bad)}
+.msg{padding:12px 14px;border-radius:10px;margin:10px 0;font-size:15px}
+.msg.ok{background:#dff3e7;color:#145c33}.msg.err{background:#fbe2e0;color:#7a1712}.msg.info{background:#e8edf8;color:var(--navy)}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:13px;color:var(--mute);font-weight:600}
+.scroll{overflow-x:auto}
+.muted{color:var(--mute);font-size:14px}
+.hero{background:linear-gradient(160deg,#0b2466,#1a56b8);color:#fff;border-radius:16px;padding:26px;margin-bottom:18px}
+.hero p{color:#d5def3;margin:0}
+.auth{max-width:520px;margin:0 auto}
+.or{display:flex;align-items:center;gap:10px;color:var(--mute);font-size:14px;margin:14px 0}.or:before,.or:after{content:"";flex:1;height:1px;background:var(--line)}
+.files li{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.files{list-style:none;padding:0;margin:10px 0}
+.meet{background:#e6f4ea;color:#0d652d;border:0}
+dialog{border:0;border-radius:16px;padding:22px;max-width:min(760px,94vw);width:100%;box-shadow:0 30px 70px rgba(3,10,40,.45)}
+dialog::backdrop{background:rgba(6,18,46,.55)}
+.kv{display:grid;grid-template-columns:170px minmax(0,1fr);gap:6px 12px;font-size:15px}.kv dt{color:var(--mute)}.kv dd{margin:0}
+[hidden]{display:none!important}
+@media(max-width:700px){.grid2,.grid3{grid-template-columns:minmax(0,1fr)}.kv{grid-template-columns:minmax(0,1fr)}.kv dt{margin-top:6px}header .in{gap:8px}.who{width:100%;order:9}}
+</style>
+</head>
+<body>
+<header><div class="in">
+  <a class="brand" href="/"><img src="/img/mark.png" alt="OSC" width="70" height="40"><span>Portal OSC</span></a>
+  <span class="sp"></span>
+  <span class="who" id="who"></span>
+  <div class="lang" role="group" aria-label="Bahasa / Language"><button type="button" data-l="id" aria-pressed="true">ID</button><button type="button" data-l="en" aria-pressed="false">EN</button></div>
+  <button class="btn line small" id="logout" type="button" hidden data-t="logout">Keluar</button>
+</div></header>
+
+<main id="app"><div class="card"><p class="muted" data-t="loading">Memuat…</p></div></main>
+
+<dialog id="dlg"><div id="dlgBody"></div><div class="row" style="margin-top:16px;justify-content:flex-end"><button class="btn line" type="button" id="dlgClose" data-t="close">Tutup</button></div></dialog>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-app.js";
+import { getAuth, onAuthStateChanged, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendEmailVerification, sendPasswordResetEmail, signOut } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, addDoc, deleteDoc, collection, query, where, getDocs, serverTimestamp, arrayUnion, arrayRemove } from "https://www.gstatic.com/firebasejs/13.3.0/firebase-firestore.js";
+
+const app = initializeApp({apiKey:"AIzaSyDaAcIrOl57jqGIx5muo9-Vs6UMv2a5VKE",authDomain:"osc-portal-d2f7b.firebaseapp.com",projectId:"osc-portal-d2f7b",storageBucket:"osc-portal-d2f7b.firebasestorage.app",messagingSenderId:"1082443960918",appId:"1:1082443960918:web:0b37872d2a3244e49361f7"});
+const auth = getAuth(app);
+const db = getFirestore(app);
+const ADMIN_EMAIL = 'tinupatta@gmail.com';
+const MAX_FILE = 650 * 1024;
+
+/* ---------------- Bahasa ---------------- */
+const T = {
+id:{loading:'Memuat…',logout:'Keluar',close:'Tutup',save:'Simpan',saved:'Tersimpan.',cancel:'Batal',
+welcome:'Portal OSC',welcomeP:'Satu tempat untuk calon crew, principal, dan tim OSC: data, dokumen, permintaan crew, interview video call, dan tagihan.',
+login:'Masuk',register:'Daftar',email:'Email',password:'Kata sandi (min. 6 karakter)',google:'Lanjut dengan Google',forgot:'Lupa kata sandi?',resetSent:'Link atur ulang kata sandi sudah dikirim ke email Anda.',
+iam:'Saya mendaftar sebagai',roleCrew:'Calon crew kapal',rolePrincipal:'Principal / pemilik kapal / operator',fullname:'Nama lengkap',phone:'No. WhatsApp',company:'Nama perusahaan',country:'Negara',
+consent:'Saya menyetujui PT Osher Samudra Crewing menyimpan dan memproses data pribadi saya untuk keperluan rekrutmen dan penempatan, sesuai UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi. Data hanya dibagikan kepada principal terkait atas persetujuan OSC.',
+needConsent:'Mohon centang persetujuan data pribadi.',chooseRole:'Lengkapi akun Anda',continue:'Lanjutkan',verifySent:'Email verifikasi sudah dikirim. Silakan cek kotak masuk Anda.',
+or:'atau',
+crewTitle:'Dasbor Calon Crew',status:'Status lamaran',profile:'Profil & pengalaman',position:'Posisi yang dilamar',dept:'Departemen',deck:'Dek',engine:'Mesin',catering:'Catering / Galley',other:'Lainnya',
+expYears:'Pengalaman di kapal (tahun)',lastVessel:'Jenis kapal terakhir',avail:'Siap bergabung mulai',certs:'Sertifikat yang dimiliki',notes:'Catatan tambahan',
+docs:'Dokumen (CV, sertifikat, Buku Pelaut, paspor)',docsHint:'Format PDF/JPG/PNG, maks. 650 KB per file. Foto dokumen bisa dikecilkan dulu sebelum diunggah.',upload:'Unggah dokumen',tooBig:'File terlalu besar (maks. 650 KB).',noDocs:'Belum ada dokumen.',del:'Hapus',open:'Buka',
+interviews:'Jadwal interview',noInterviews:'Belum ada jadwal interview.',join:'Gabung Video Call',
+st_baru:'Baru',st_disaring:'Sedang disaring',st_shortlist:'Masuk shortlist',st_interview:'Interview',st_diterima:'Diterima',st_ditolak:'Belum sesuai',
+prTitle:'Dasbor Principal',reqNew:'Ajukan permintaan crew',vessel:'Nama / jenis kapal',rank:'Jabatan yang dibutuhkan',qty:'Jumlah',joinDate:'Tanggal joining',salary:'Kisaran gaji (opsional)',send:'Kirim permintaan',reqSent:'Permintaan terkirim. Tim OSC akan menghubungi Anda.',
+myReqs:'Permintaan saya',noReqs:'Belum ada permintaan.',candidates:'Kandidat crew dari OSC',noCand:'Belum ada kandidat yang dibagikan OSC.',view:'Lihat',
+invoices:'Tagihan',noInv:'Belum ada tagihan.',amount:'Jumlah',due:'Jatuh tempo',va:'Virtual account',paid:'Lunas',unpaid:'Belum dibayar',desc:'Keterangan',
+adTitle:'Dasbor Admin OSC',tCrew:'Calon crew',tReq:'Permintaan principal',tInt:'Interview',tInv:'Tagihan',tUsers:'Akun',
+setStatus:'Ubah status',adminNote:'Catatan internal OSC',shareTo:'Bagikan ke principal',share:'Bagikan',unshare:'Cabut',sharedWith:'Dibagikan ke',
+schedule:'Jadwalkan interview',when:'Waktu (WITA)',meetLink:'Link Google Meet',makeMeet:'Buat link Meet baru',makeMeetHint:'Klik untuk membuka Google Meet, salin link rapat (meet.google.com/…), lalu tempel di sini.',
+create:'Buat',choose:'Pilih…',newInv:'Buat tagihan',markPaid:'Tandai lunas',role:'Peran',joined:'Terdaftar',filter:'Filter status',all:'Semua',
+errGeneric:'Terjadi kesalahan. Coba lagi.',name:'Nama',contact:'Kontak',date:'Tanggal',crew:'Crew',principal:'Principal',action:'Aksi',vaNote:'Nomor VA akan terisi otomatis setelah payment gateway tersambung. Sementara bisa diisi manual.'},
+en:{loading:'Loading…',logout:'Sign out',close:'Close',save:'Save',saved:'Saved.',cancel:'Cancel',
+welcome:'OSC Portal',welcomeP:'One place for crew candidates, principals and the OSC team: profiles, documents, crew requests, video-call interviews and invoices.',
+login:'Sign in',register:'Register',email:'Email',password:'Password (min. 6 characters)',google:'Continue with Google',forgot:'Forgot password?',resetSent:'A password reset link has been sent to your email.',
+iam:'I am registering as',roleCrew:'Seafarer / crew candidate',rolePrincipal:'Principal / shipowner / operator',fullname:'Full name',phone:'WhatsApp number',company:'Company name',country:'Country',
+consent:'I agree that PT Osher Samudra Crewing may store and process my personal data for recruitment and placement purposes, in line with Indonesian Law No. 27 of 2022 on Personal Data Protection. Data is only shared with relevant principals with OSC approval.',
+needConsent:'Please tick the personal data consent.',chooseRole:'Complete your account',continue:'Continue',verifySent:'A verification email has been sent. Please check your inbox.',
+or:'or',
+crewTitle:'Crew Candidate Dashboard',status:'Application status',profile:'Profile & experience',position:'Position applied for',dept:'Department',deck:'Deck',engine:'Engine',catering:'Catering / Galley',other:'Other',
+expYears:'Sea experience (years)',lastVessel:'Last vessel type',avail:'Available from',certs:'Certificates held',notes:'Additional notes',
+docs:'Documents (CV, certificates, seaman book, passport)',docsHint:'PDF/JPG/PNG, max. 650 KB per file. Photos of documents can be resized before uploading.',upload:'Upload document',tooBig:'File too large (max. 650 KB).',noDocs:'No documents yet.',del:'Delete',open:'Open',
+interviews:'Interview schedule',noInterviews:'No interviews scheduled yet.',join:'Join Video Call',
+st_baru:'New',st_disaring:'Under review',st_shortlist:'Shortlisted',st_interview:'Interview',st_diterima:'Accepted',st_ditolak:'Not suitable',
+prTitle:'Principal Dashboard',reqNew:'Submit a crew request',vessel:'Vessel name / type',rank:'Rank required',qty:'Quantity',joinDate:'Joining date',salary:'Salary range (optional)',send:'Send request',reqSent:'Request sent. The OSC team will contact you.',
+myReqs:'My requests',noReqs:'No requests yet.',candidates:'Crew candidates from OSC',noCand:'OSC has not shared any candidates yet.',view:'View',
+invoices:'Invoices',noInv:'No invoices yet.',amount:'Amount',due:'Due date',va:'Virtual account',paid:'Paid',unpaid:'Unpaid',desc:'Description',
+adTitle:'OSC Admin Dashboard',tCrew:'Crew candidates',tReq:'Principal requests',tInt:'Interviews',tInv:'Invoices',tUsers:'Accounts',
+setStatus:'Set status',adminNote:'OSC internal note',shareTo:'Share with principal',share:'Share',unshare:'Revoke',sharedWith:'Shared with',
+schedule:'Schedule interview',when:'Time (WITA, UTC+8)',meetLink:'Google Meet link',makeMeet:'Create new Meet link',makeMeetHint:'Click to open Google Meet, copy the meeting link (meet.google.com/…), then paste it here.',
+create:'Create',choose:'Choose…',newInv:'Create invoice',markPaid:'Mark as paid',role:'Role',joined:'Joined',filter:'Filter status',all:'All',
+errGeneric:'Something went wrong. Please try again.',name:'Name',contact:'Contact',date:'Date',crew:'Crew',principal:'Principal',action:'Action',vaNote:'The VA number will be filled automatically once the payment gateway is connected. For now it can be entered manually.'}
+};
+let LANG = 'id';
+try { LANG = localStorage.getItem('osc-lang') || (/^id\b/i.test(navigator.language||'') ? 'id' : 'en'); } catch (e) {}
+if (LANG !== 'id' && LANG !== 'en') LANG = 'id';
+const t = k => (T[LANG][k] ?? T.id[k] ?? k);
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = s => document.querySelector(s);
+const STATUSES = ['baru','disaring','shortlist','interview','diterima','ditolak'];
+const stBadge = s => `<span class="badge ${s==='diterima'?'ok':s==='ditolak'?'bad':s==='baru'?'':'warn'}">${esc(t('st_'+s))}</span>`;
+const CERTS = ['BST','SAT / SDSD','Buku Pelaut / Seaman Book','Paspor / Passport','MCU','COC (ANT/ATT)','COP','GMDSS','Tanker (BOCT/BCT)'];
+const fmtDate = v => { if (!v) return '-'; const d = v.toDate ? v.toDate() : new Date(v); return isNaN(d) ? esc(v) : d.toLocaleString(LANG==='id'?'id-ID':'en-GB',{dateStyle:'medium',timeStyle: v.toDate ? undefined : 'short', timeZone:'Asia/Makassar'}); };
+const fmtMoney = n => 'Rp ' + Number(n||0).toLocaleString('id-ID');
+const track = (e,p) => { try { gtag('event', e, p||{}); } catch (x) {} };
+
+function applyStatic() {
+  document.documentElement.lang = LANG;
+  document.querySelectorAll('[data-t]').forEach(el => { el.textContent = t(el.dataset.t); });
+  document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.l === LANG)));
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => { LANG = b.dataset.l; try { localStorage.setItem('osc-lang', LANG); } catch (e) {} applyStatic(); route(); }));
+const dlg = $('#dlg');
+$('#dlgClose').addEventListener('click', () => dlg.close());
+const showDlg = html => { $('#dlgBody').innerHTML = html; applyStatic(); dlg.showModal(); };
+const note = (el, kind, text) => { el.innerHTML = `<div class="msg ${kind}">${esc(text)}</div>`; };
+const errText = e => { const c = (e && e.code) || ''; const m = {
+  'auth/invalid-credential': LANG==='id'?'Email atau kata sandi salah.':'Wrong email or password.',
+  'auth/email-already-in-use': LANG==='id'?'Email sudah terdaftar. Silakan masuk.':'Email already registered. Please sign in.',
+  'auth/weak-password': LANG==='id'?'Kata sandi minimal 6 karakter.':'Password must be at least 6 characters.',
+  'auth/invalid-email': LANG==='id'?'Format email tidak valid.':'Invalid email format.',
+  'auth/popup-closed-by-user': LANG==='id'?'Jendela login ditutup.':'Sign-in window closed.',
+  'permission-denied': LANG==='id'?'Akses ditolak.':'Access denied.'}; return m[c] || t('errGeneric'); };
+
+/* ---------------- State & routing ---------------- */
+let USER = null, PROFILE = null;
+const isAdmin = () => USER && USER.email === ADMIN_EMAIL && USER.emailVerified;
+$('#logout').addEventListener('click', async () => { await signOut(auth); });
+
+onAuthStateChanged(auth, async u => {
+  USER = u; PROFILE = null;
+  if (u) { try { const s = await getDoc(doc(db,'users',u.uid)); PROFILE = s.exists() ? s.data() : null; } catch (e) { PROFILE = null; } }
+  $('#logout').hidden = !u;
+  $('#who').textContent = u ? (u.email || '') : '';
+  route();
+});
+
+function route() {
+  applyStatic();
+  if (!USER) return renderAuth();
+  if (isAdmin()) return renderAdmin();
+  if (!PROFILE) return renderCompleteProfile();
+  if (PROFILE.role === 'crew') return renderCrew();
+  if (PROFILE.role === 'principal') return renderPrincipal();
+  renderCompleteProfile();
+}
+
+/* ---------------- Login / daftar ---------------- */
+function roleFields(prefix) {
+  return `<fieldset style="border:0;padding:0;margin:0 0 12px"><legend style="font-weight:600;margin-bottom:6px">${t('iam')}</legend>
+    <label class="check"><input type="radio" name="${prefix}role" value="crew" checked> ${t('roleCrew')}</label>
+    <label class="check"><input type="radio" name="${prefix}role" value="principal"> ${t('rolePrincipal')}</label></fieldset>
+  <div class="grid2"><div><label for="${prefix}name">${t('fullname')}</label><input id="${prefix}name" required autocomplete="name"></div>
+  <div><label for="${prefix}phone">${t('phone')}</label><input id="${prefix}phone" inputmode="tel" autocomplete="tel" placeholder="+62…"></div></div>
+  <div class="grid2" id="${prefix}co" hidden style="margin-top:12px"><div><label for="${prefix}company">${t('company')}</label><input id="${prefix}company" autocomplete="organization"></div>
+  <div><label for="${prefix}country">${t('country')}</label><input id="${prefix}country" autocomplete="country-name"></div></div>
+  <label class="check" style="margin-top:14px"><input type="checkbox" id="${prefix}consent"> <span class="muted">${t('consent')}</span></label>`;
+}
+function wireRole(prefix) {
+  document.querySelectorAll(`input[name=${prefix}role]`).forEach(r => r.addEventListener('change', () => { $('#'+prefix+'co').hidden = document.querySelector(`input[name=${prefix}role]:checked`).value !== 'principal'; }));
+}
+function readRole(prefix) {
+  return { role: document.querySelector(`input[name=${prefix}role]:checked`).value, name: $('#'+prefix+'name').value.trim(), phone: $('#'+prefix+'phone').value.trim(),
+    company: ($('#'+prefix+'company')||{}).value?.trim() || '', country: ($('#'+prefix+'country')||{}).value?.trim() || '', consent: $('#'+prefix+'consent').checked };
+}
+async function createProfile(u, d) {
+  await setDoc(doc(db,'users',u.uid), { role: d.role, name: d.name || u.displayName || '', email: u.email, phone: d.phone, company: d.company, country: d.country, consent: true, consentAt: serverTimestamp(), createdAt: serverTimestamp(), lang: LANG });
+  if (d.role === 'crew') await setDoc(doc(db,'crews',u.uid), { name: d.name || u.displayName || '', email: u.email, phone: d.phone, status: 'baru', sharedWith: [], createdAt: serverTimestamp() });
+  track('portal_register', {role: d.role});
+}
+
+function renderAuth(mode='login') {
+  $('#app').innerHTML = `<div class="hero"><h1>${t('welcome')}</h1><p>${t('welcomeP')}</p></div>
+  <div class="card auth"><div class="tabs" role="tablist"><button role="tab" aria-selected="${mode==='login'}" data-m="login">${t('login')}</button><button role="tab" aria-selected="${mode==='register'}" data-m="register">${t('register')}</button></div>
+  <form id="af" novalidate>
+    ${mode==='register' ? roleFields('r') : ''}
+    <div style="margin-top:12px"><label for="em">${t('email')}</label><input id="em" type="email" autocomplete="email" required></div>
+    <div style="margin-top:12px"><label for="pw">${t('password')}</label><input id="pw" type="password" autocomplete="${mode==='login'?'current-password':'new-password'}" minlength="6" required></div>
+    <div id="am"></div>
+    <div class="row" style="margin-top:16px"><button class="btn" type="submit">${mode==='login'?t('login'):t('register')}</button>${mode==='login'?`<button class="btn line small" type="button" id="fg">${t('forgot')}</button>`:''}</div>
+  </form>
+  <div class="or">${t('or')}</div>
+  <button class="btn line" type="button" id="gg" style="width:100%">${t('google')}</button></div>`;
+  document.querySelectorAll('.tabs button').forEach(b => b.addEventListener('click', () => renderAuth(b.dataset.m)));
+  if (mode==='register') wireRole('r');
+  const am = $('#am');
+  $('#af').addEventListener('submit', async e => {
+    e.preventDefault();
+    const em = $('#em').value.trim(), pw = $('#pw').value;
+    try {
+      if (mode === 'login') { await signInWithEmailAndPassword(auth, em, pw); track('portal_login',{method:'email'}); }
+      else {
+        const d = readRole('r');
+        if (!d.consent) return note(am,'err',t('needConsent'));
+        const cred = await createUserWithEmailAndPassword(auth, em, pw);
+        await createProfile(cred.user, d);
+        try { await sendEmailVerification(cred.user); } catch (x) {}
+        PROFILE = (await getDoc(doc(db,'users',cred.user.uid))).data();
+        route();
+      }
+    } catch (x) { note(am,'err',errText(x)); }
+  });
+  const fg = $('#fg'); if (fg) fg.addEventListener('click', async () => { const em = $('#em').value.trim(); if (!em) return note(am,'err',t('email')+'?'); try { await sendPasswordResetEmail(auth, em); note(am,'ok',t('resetSent')); } catch (x) { note(am,'err',errText(x)); } });
+  $('#gg').addEventListener('click', async () => { try { await signInWithPopup(auth, new GoogleAuthProvider()); track('portal_login',{method:'google'}); } catch (x) { note(am,'err',errText(x)); } });
+}
+
+function renderCompleteProfile() {
+  $('#app').innerHTML = `<div class="card auth"><h2>${t('chooseRole')}</h2><form id="cf">${roleFields('c')}<div id="cm"></div><div style="margin-top:16px"><button class="btn" type="submit">${t('continue')}</button></div></form></div>`;
+  wireRole('c'); $('#cname').value = USER.displayName || '';
+  $('#cf').addEventListener('submit', async e => { e.preventDefault(); const d = readRole('c'); if (!d.consent) return note($('#cm'),'err',t('needConsent'));
+    try { await createProfile(USER, d); PROFILE = (await getDoc(doc(db,'users',USER.uid))).data(); route(); } catch (x) { note($('#cm'),'err',errText(x)); } });
+}
+
+/* ---------------- Helpers data ---------------- */
+async function listFiles(uid) { const s = await getDocs(collection(db,'crews',uid,'files')); return s.docs.map(d => ({id:d.id, ...d.data()})); }
+function filesHtml(files, canDelete) {
+  if (!files.length) return `<p class="muted">${t('noDocs')}</p>`;
+  return `<ul class="files">${files.map(f => `<li><span style="flex:1">${esc(f.name)} <span class="muted">(${Math.round((f.size||0)/1024)} KB)</span></span>
+    <a class="btn small line" href="${esc(f.data)}" download="${esc(f.name)}">${t('open')}</a>${canDelete?`<button class="btn small danger" data-del="${esc(f.id)}" type="button">${t('del')}</button>`:''}</li>`).join('')}</ul>`;
+}
+function interviewsHtml(list, who) {
+  if (!list.length) return `<p class="muted">${t('noInterviews')}</p>`;
+  return `<div class="scroll"><table><thead><tr><th>${t('when')}</th><th>${who==='crew'?t('principal'):t('crew')}</th><th></th></tr></thead><tbody>${list.sort((a,b)=>String(a.when).localeCompare(String(b.when))).map(i => `<tr><td>${fmtDate(i.when)}</td><td>${esc(who==='crew'?i.principalName:i.crewName)}${i.note?`<div class="muted">${esc(i.note)}</div>`:''}</td>
+    <td>${i.meetLink?`<a class="btn small meet" href="${esc(i.meetLink)}" target="_blank" rel="noopener" data-join>${t('join')}</a>`:''}</td></tr>`).join('')}</tbody></table></div>`;
+}
+const wireJoin = root => root.querySelectorAll('[data-join]').forEach(a => a.addEventListener('click', () => track('meet_join')));
+
+/* ---------------- Dasbor crew ---------------- */
+async function renderCrew() {
+  const uid = USER.uid;
+  let c = {}; try { const s = await getDoc(doc(db,'crews',uid)); c = s.exists() ? s.data() : {}; } catch (e) {}
+  if (!c.status) { try { await setDoc(doc(db,'crews',uid), { name: PROFILE.name, email: USER.email, phone: PROFILE.phone||'', status:'baru', sharedWith:[], createdAt: serverTimestamp() }); c = {status:'baru'}; } catch (e) {} }
+  const certs = c.certs || [];
+  $('#app').innerHTML = `<div class="hero"><h1>${t('crewTitle')}</h1><p>${esc(PROFILE.name)} · ${t('status')}: ${stBadge(c.status||'baru')}</p></div>
+  ${USER.emailVerified || USER.providerData.some(p=>p.providerId==='google.com') ? '' : `<div class="msg info">${t('verifySent')}</div>`}
+  <div class="card"><h2>${t('interviews')}</h2><div id="ivs"><p class="muted">${t('loading')}</p></div></div>
+  <form class="card" id="pf"><h2>${t('profile')}</h2>
+    <div class="grid3"><div><label for="p_pos">${t('position')}</label><input id="p_pos" value="${esc(c.position)}" placeholder="AB, Oiler, 2nd Officer…"></div>
+    <div><label for="p_dept">${t('dept')}</label><select id="p_dept">${['deck','engine','catering','other'].map(d=>`<option value="${d}" ${c.dept===d?'selected':''}>${t(d)}</option>`).join('')}</select></div>
+    <div><label for="p_exp">${t('expYears')}</label><input id="p_exp" type="number" min="0" max="50" value="${esc(c.expYears)}"></div></div>
+    <div class="grid3" style="margin-top:12px"><div><label for="p_vsl">${t('lastVessel')}</label><input id="p_vsl" value="${esc(c.lastVessel)}" placeholder="Tug & Barge, OSV, Tanker…"></div>
+    <div><label for="p_av">${t('avail')}</label><input id="p_av" type="date" value="${esc(c.availableFrom)}"></div>
+    <div><label for="p_ph">${t('phone')}</label><input id="p_ph" value="${esc(c.phone||PROFILE.phone)}"></div></div>
+    <fieldset style="border:0;padding:0;margin:14px 0 0"><legend style="font-weight:600;margin-bottom:6px">${t('certs')}</legend><div class="grid3">${CERTS.map((x,i)=>`<label class="check"><input type="checkbox" value="${esc(x)}" ${certs.includes(x)?'checked':''} name="cert"> ${esc(x)}</label>`).join('')}</div></fieldset>
+    <div style="margin-top:12px"><label for="p_nt">${t('notes')}</label><textarea id="p_nt">${esc(c.notes)}</textarea></div>
+    <div id="pm"></div><button class="btn" type="submit" style="margin-top:12px">${t('save')}</button></form>
+  <div class="card"><h2>${t('docs')}</h2><p class="muted">${t('docsHint')}</p><div id="fl"></div>
+    <label class="btn gold" style="margin-top:8px;width:max-content">${t('upload')}<input type="file" id="fu" accept=".pdf,image/*" hidden></label><div id="fm"></div></div>`;
+  $('#pf').addEventListener('submit', async e => { e.preventDefault();
+    const data = { position: $('#p_pos').value.trim(), dept: $('#p_dept').value, expYears: $('#p_exp').value, lastVessel: $('#p_vsl').value.trim(), availableFrom: $('#p_av').value, phone: $('#p_ph').value.trim(),
+      certs: [...document.querySelectorAll('input[name=cert]:checked')].map(x=>x.value), notes: $('#p_nt').value.trim(), name: PROFILE.name, email: USER.email, updatedAt: serverTimestamp() };
+    try { await updateDoc(doc(db,'crews',uid), data); note($('#pm'),'ok',t('saved')); track('crew_profile_save'); } catch (x) { note($('#pm'),'err',errText(x)); } });
+  const loadFiles = async () => { const f = await listFiles(uid); $('#fl').innerHTML = filesHtml(f, true);
+    $('#fl').querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', async () => { await deleteDoc(doc(db,'crews',uid,'files',b.dataset.del)); loadFiles(); })); };
+  loadFiles();
+  $('#fu').addEventListener('change', async e => { const file = e.target.files[0]; e.target.value=''; if (!file) return;
+    if (file.size > MAX_FILE) return note($('#fm'),'err',t('tooBig'));
+    const data = await new Promise((res, rej) => { const r = new FileReader(); r.onload = () => res(r.result); r.onerror = rej; r.readAsDataURL(file); });
+    try { await addDoc(collection(db,'crews',uid,'files'), { name: file.name, type: file.type, size: file.size, data, createdAt: serverTimestamp() }); $('#fm').innerHTML=''; loadFiles(); track('crew_doc_upload'); }
+    catch (x) { note($('#fm'),'err',errText(x)); } });
+  try { const s = await getDocs(query(collection(db,'interviews'), where('crewUid','==',uid))); $('#ivs').innerHTML = interviewsHtml(s.docs.map(d=>d.data()),'crew'); wireJoin($('#ivs')); }
+  catch (x) { $('#ivs').innerHTML = `<p class="muted">${t('noInterviews')}</p>`; }
+}
+
+/* ---------------- Dasbor principal ---------------- */
+async function renderPrincipal() {
+  const uid = USER.uid;
+  $('#app').innerHTML = `<div class="hero"><h1>${t('prTitle')}</h1><p>${esc(PROFILE.company || PROFILE.name)}</p></div>
+  <div class="card"><h2>${t('interviews')}</h2><div id="ivs"><p class="muted">${t('loading')}</p></div></div>
+  <div class="card"><h2>${t('candidates')}</h2><div id="cands"><p class="muted">${t('loading')}</p></div></div>
+  <form class="card" id="rf"><h2>${t('reqNew')}</h2>
+    <div class="grid3"><div><label for="r_v">${t('vessel')}</label><input id="r_v" required></div><div><label for="r_r">${t('rank')}</label><input id="r_r" required placeholder="Master, AB, Oiler…"></div><div><label for="r_q">${t('qty')}</label><input id="r_q" type="number" min="1" value="1"></div></div>
+    <div class="grid3" style="margin-top:12px"><div><label for="r_d">${t('joinDate')}</label><input id="r_d" type="date"></div><div><label for="r_s">${t('salary')}</label><input id="r_s"></div><div></div></div>
+    <div style="margin-top:12px"><label for="r_n">${t('notes')}</label><textarea id="r_n"></textarea></div><div id="rm"></div><button class="btn gold" type="submit" style="margin-top:12px">${t('send')}</button></form>
+  <div class="card"><h2>${t('myReqs')}</h2><div id="reqs"></div></div>
+  <div class="card"><h2>${t('invoices')}</h2><div id="invs"></div></div>`;
+  $('#rf').addEventListener('submit', async e => { e.preventDefault(); const v = $('#r_v').value.trim(), r = $('#r_r').value.trim(); if (!v || !r) return;
+    try { await addDoc(collection(db,'requests'), { principalUid: uid, principalName: PROFILE.company || PROFILE.name, email: USER.email, phone: PROFILE.phone||'', vessel: v, rank: r, qty: Number($('#r_q').value||1), joinDate: $('#r_d').value, salary: $('#r_s').value.trim(), notes: $('#r_n').value.trim(), status: 'baru', createdAt: serverTimestamp() });
+      e.target.reset(); note($('#rm'),'ok',t('reqSent')); track('principal_request'); loadReqs(); } catch (x) { note($('#rm'),'err',errText(x)); } });
+  const loadReqs = async () => { const s = await getDocs(query(collection(db,'requests'), where('principalUid','==',uid))); const l = s.docs.map(d=>d.data());
+    $('#reqs').innerHTML = l.length ? `<div class="scroll"><table><thead><tr><th>${t('vessel')}</th><th>${t('rank')}</th><th>${t('qty')}</th><th>${t('joinDate')}</th><th>${t('status')}</th></tr></thead><tbody>${l.map(r=>`<tr><td>${esc(r.vessel)}</td><td>${esc(r.rank)}</td><td>${esc(r.qty)}</td><td>${esc(r.joinDate||'-')}</td><td>${stBadge(r.status)}</td></tr>`).join('')}</tbody></table></div>` : `<p class="muted">${t('noReqs')}</p>`; };
+  loadReqs().catch(()=>{});
+  try { const s = await getDocs(query(collection(db,'crews'), where('sharedWith','array-contains',uid))); const l = s.docs.map(d=>({uid:d.id,...d.data()}));
+    $('#cands').innerHTML = l.length ? `<div class="scroll"><table><thead><tr><th>${t('name')}</th><th>${t('position')}</th><th>${t('expYears')}</th><th>${t('status')}</th><th></th></tr></thead><tbody>${l.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.position||'-')}</td><td>${esc(c.expYears||'-')}</td><td>${stBadge(c.status)}</td><td><button class="btn small line" data-v="${esc(c.uid)}" type="button">${t('view')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="muted">${t('noCand')}</p>`;
+    $('#cands').querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => crewDetail(l.find(x=>x.uid===b.dataset.v), false)));
+  } catch (x) { $('#cands').innerHTML = `<p class="muted">${t('noCand')}</p>`; }
+  try { const s = await getDocs(query(collection(db,'interviews'), where('principalUid','==',uid))); $('#ivs').innerHTML = interviewsHtml(s.docs.map(d=>d.data()),'principal'); wireJoin($('#ivs')); } catch (x) { $('#ivs').innerHTML = `<p class="muted">${t('noInterviews')}</p>`; }
+  try { const s = await getDocs(query(collection(db,'invoices'), where('principalUid','==',uid))); $('#invs').innerHTML = invoicesHtml(s.docs.map(d=>({id:d.id,...d.data()})), false); } catch (x) { $('#invs').innerHTML = `<p class="muted">${t('noInv')}</p>`; }
+}
+function invoicesHtml(l, admin) {
+  if (!l.length) return `<p class="muted">${t('noInv')}</p>`;
+  return `<div class="scroll"><table><thead><tr>${admin?`<th>${t('principal')}</th>`:''}<th>${t('desc')}</th><th>${t('amount')}</th><th>${t('due')}</th><th>${t('va')}</th><th>${t('status')}</th>${admin?'<th></th>':''}</tr></thead><tbody>${l.map(i=>`<tr>${admin?`<td>${esc(i.principalName)}</td>`:''}<td>${esc(i.desc)}</td><td style="white-space:nowrap">${fmtMoney(i.amount)}</td><td>${esc(i.due||'-')}</td><td>${i.vaNumber?`<strong>${esc(i.vaBank||'')} ${esc(i.vaNumber)}</strong>`:'-'}</td><td><span class="badge ${i.status==='paid'?'ok':'warn'}">${i.status==='paid'?t('paid'):t('unpaid')}</span></td>${admin&&i.status!=='paid'?`<td><button class="btn small" data-paid="${esc(i.id)}" type="button">${t('markPaid')}</button></td>`:admin?'<td></td>':''}</tr>`).join('')}</tbody></table></div>`;
+}
+
+/* ---------------- Detail crew (principal & admin) ---------------- */
+async function crewDetail(c, admin, principals) {
+  let files = []; try { files = await listFiles(c.uid); } catch (e) {}
+  const deptLabel = c.dept ? t(c.dept) : '-';
+  showDlg(`<h2>${esc(c.name)}</h2><p>${stBadge(c.status)}</p>
+  <dl class="kv"><dt>${t('position')}</dt><dd>${esc(c.position||'-')}</dd><dt>${t('dept')}</dt><dd>${esc(deptLabel)}</dd><dt>${t('expYears')}</dt><dd>${esc(c.expYears||'-')}</dd>
+  <dt>${t('lastVessel')}</dt><dd>${esc(c.lastVessel||'-')}</dd><dt>${t('avail')}</dt><dd>${esc(c.availableFrom||'-')}</dd><dt>${t('certs')}</dt><dd>${esc((c.certs||[]).join(', ')||'-')}</dd>
+  ${admin?`<dt>${t('email')}</dt><dd>${esc(c.email)}</dd><dt>${t('phone')}</dt><dd>${esc(c.phone||'-')}</dd>`:''}<dt>${t('notes')}</dt><dd>${esc(c.notes||'-')}</dd></dl>
+  <h3 style="margin-top:16px">${t('docs')}</h3>${filesHtml(files, false)}
+  ${admin ? adminCrewTools(c, principals) : ''}`);
+  if (admin) wireAdminCrewTools(c, principals);
+}
+
+/* ---------------- Dasbor admin ---------------- */
+let ADMIN_TAB = 'crew';
+async function renderAdmin() {
+  $('#app').innerHTML = `<div class="hero"><h1>${t('adTitle')}</h1><p>${esc(USER.email)}</p></div>
+  <div class="tabs" role="tablist">${[['crew','tCrew'],['req','tReq'],['int','tInt'],['inv','tInv'],['users','tUsers']].map(([k,l])=>`<button role="tab" aria-selected="${ADMIN_TAB===k}" data-tab="${k}">${t(l)}</button>`).join('')}</div>
+  <div class="card" id="pane"><p class="muted">${t('loading')}</p></div>`;
+  document.querySelectorAll('[data-tab]').forEach(b => b.addEventListener('click', () => { ADMIN_TAB = b.dataset.tab; renderAdmin(); }));
+  const users = (await getDocs(collection(db,'users'))).docs.map(d=>({uid:d.id,...d.data()}));
+  const principals = users.filter(u=>u.role==='principal');
+  const pane = $('#pane');
+  try {
+  if (ADMIN_TAB === 'crew') {
+    const crews = (await getDocs(collection(db,'crews'))).docs.map(d=>({uid:d.id,...d.data()}));
+    const draw = f => { const l = crews.filter(c => f==='all' || c.status===f);
+      $('#ctab').innerHTML = l.length ? `<div class="scroll"><table><thead><tr><th>${t('name')}</th><th>${t('position')}</th><th>${t('expYears')}</th><th>${t('contact')}</th><th>${t('status')}</th><th></th></tr></thead><tbody>${l.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.position||'-')}</td><td>${esc(c.expYears||'-')}</td><td>${esc(c.phone||'')}<div class="muted">${esc(c.email)}</div></td><td>${stBadge(c.status)}</td><td><button class="btn small line" data-v="${esc(c.uid)}" type="button">${t('view')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="muted">-</p>`;
+      $('#ctab').querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => crewDetail(crews.find(x=>x.uid===b.dataset.v), true, principals))); };
+    pane.innerHTML = `<div class="row" style="margin-bottom:12px"><label for="cf" style="margin:0">${t('filter')}</label><select id="cf" style="width:auto"><option value="all">${t('all')}</option>${STATUSES.map(s=>`<option value="${s}">${esc(t('st_'+s))}</option>`).join('')}</select><span class="muted">${crews.length} ${t('crew')}</span></div><div id="ctab"></div>`;
+    $('#cf').addEventListener('change', e => draw(e.target.value)); draw('all');
+  }
+  if (ADMIN_TAB === 'req') {
+    const reqs = (await getDocs(collection(db,'requests'))).docs.map(d=>({id:d.id,...d.data()}));
+    pane.innerHTML = reqs.length ? `<div class="scroll"><table><thead><tr><th>${t('principal')}</th><th>${t('vessel')}</th><th>${t('rank')}</th><th>${t('qty')}</th><th>${t('joinDate')}</th><th>${t('notes')}</th><th>${t('status')}</th></tr></thead><tbody>${reqs.map(r=>`<tr><td>${esc(r.principalName)}<div class="muted">${esc(r.email)} ${esc(r.phone)}</div></td><td>${esc(r.vessel)}</td><td>${esc(r.rank)}</td><td>${esc(r.qty)}</td><td>${esc(r.joinDate||'-')}</td><td>${esc(r.salary||'')} ${esc(r.notes||'')}</td><td><select data-rq="${esc(r.id)}">${['baru','disaring','shortlist','interview','diterima','ditolak'].map(s=>`<option value="${s}" ${r.status===s?'selected':''}>${esc(t('st_'+s))}</option>`).join('')}</select></td></tr>`).join('')}</tbody></table></div>` : `<p class="muted">${t('noReqs')}</p>`;
+    pane.querySelectorAll('[data-rq]').forEach(s => s.addEventListener('change', () => updateDoc(doc(db,'requests',s.dataset.rq), {status: s.value})));
+  }
+  if (ADMIN_TAB === 'int') {
+    const ivs = (await getDocs(collection(db,'interviews'))).docs.map(d=>({id:d.id,...d.data()}));
+    pane.innerHTML = ivs.length ? `<div class="scroll"><table><thead><tr><th>${t('when')}</th><th>${t('crew')}</th><th>${t('principal')}</th><th></th></tr></thead><tbody>${ivs.sort((a,b)=>String(a.when).localeCompare(String(b.when))).map(i=>`<tr><td>${fmtDate(i.when)}</td><td>${esc(i.crewName)}</td><td>${esc(i.principalName)}</td><td class="row">${i.meetLink?`<a class="btn small meet" href="${esc(i.meetLink)}" target="_blank" rel="noopener">${t('join')}</a>`:''}<button class="btn small danger" data-di="${esc(i.id)}" type="button">${t('del')}</button></td></tr>`).join('')}</tbody></table></div>` : `<p class="muted">${t('noInterviews')}</p>`;
+    pane.querySelectorAll('[data-di]').forEach(b => b.addEventListener('click', async () => { await deleteDoc(doc(db,'interviews',b.dataset.di)); renderAdmin(); }));
+  }
+  if (ADMIN_TAB === 'inv') {
+    const invs = (await getDocs(collection(db,'invoices'))).docs.map(d=>({id:d.id,...d.data()}));
+    pane.innerHTML = `<form id="inf" style="margin-bottom:18px"><h3>${t('newInv')}</h3><div class="grid3"><div><label for="i_p">${t('principal')}</label><select id="i_p" required><option value="">${t('choose')}</option>${principals.map(p=>`<option value="${esc(p.uid)}">${esc(p.company||p.name)}</option>`).join('')}</select></div>
+      <div><label for="i_a">${t('amount')} (Rp)</label><input id="i_a" type="number" min="0" required></div><div><label for="i_d">${t('due')}</label><input id="i_d" type="date"></div></div>
+      <div class="grid3" style="margin-top:12px"><div><label for="i_desc">${t('desc')}</label><input id="i_desc" required></div><div><label for="i_vb">Bank VA</label><input id="i_vb" placeholder="BNI / Mandiri / BCA…"></div><div><label for="i_vn">${t('va')}</label><input id="i_vn" inputmode="numeric"></div></div>
+      <p class="muted">${t('vaNote')}</p><div id="im"></div><button class="btn gold" type="submit">${t('create')}</button></form><div id="ilist">${invoicesHtml(invs, true)}</div>`;
+    $('#inf').addEventListener('submit', async e => { e.preventDefault(); const p = principals.find(x=>x.uid===$('#i_p').value); if (!p) return;
+      try { await addDoc(collection(db,'invoices'), { principalUid: p.uid, principalName: p.company||p.name, amount: Number($('#i_a').value), due: $('#i_d').value, desc: $('#i_desc').value.trim(), vaBank: $('#i_vb').value.trim(), vaNumber: $('#i_vn').value.trim(), status: 'unpaid', createdAt: serverTimestamp() }); renderAdmin(); }
+      catch (x) { note($('#im'),'err',errText(x)); } });
+    pane.querySelectorAll('[data-paid]').forEach(b => b.addEventListener('click', async () => { await updateDoc(doc(db,'invoices',b.dataset.paid), {status:'paid', paidAt: serverTimestamp()}); renderAdmin(); }));
+  }
+  if (ADMIN_TAB === 'users') {
+    pane.innerHTML = `<div class="scroll"><table><thead><tr><th>${t('name')}</th><th>${t('role')}</th><th>${t('company')}</th><th>${t('contact')}</th><th>${t('joined')}</th></tr></thead><tbody>${users.map(u=>`<tr><td>${esc(u.name)}</td><td>${esc(u.role==='crew'?t('crew'):t('principal'))}</td><td>${esc(u.company||'-')} ${u.country?`<div class="muted">${esc(u.country)}</div>`:''}</td><td>${esc(u.email)}<div class="muted">${esc(u.phone||'')}</div></td><td>${fmtDate(u.createdAt)}</td></tr>`).join('')}</tbody></table></div>`;
+  }
+  } catch (x) { note(pane,'err',errText(x)); }
+}
+function adminCrewTools(c, principals) {
+  const shared = (c.sharedWith||[]).map(id => principals.find(p=>p.uid===id)).filter(Boolean);
+  return `<hr style="margin:18px 0;border:0;border-top:1px solid var(--line)">
+  <div class="grid2"><div><label for="a_st">${t('setStatus')}</label><select id="a_st">${STATUSES.map(s=>`<option value="${s}" ${c.status===s?'selected':''}>${esc(t('st_'+s))}</option>`).join('')}</select></div>
+  <div><label for="a_nt">${t('adminNote')}</label><input id="a_nt" value="${esc(c.adminNote)}"></div></div>
+  <button class="btn small" id="a_save" type="button" style="margin-top:10px">${t('save')}</button><span id="a_m"></span>
+  <h3 style="margin-top:18px">${t('shareTo')}</h3>
+  <p class="muted">${t('sharedWith')}: ${shared.length ? shared.map(p=>`${esc(p.company||p.name)} <button class="btn small danger" data-un="${esc(p.uid)}" type="button">${t('unshare')}</button>`).join(' ') : '-'}</p>
+  <div class="row"><select id="a_pr" style="width:auto;flex:1"><option value="">${t('choose')}</option>${principals.map(p=>`<option value="${esc(p.uid)}">${esc(p.company||p.name)}</option>`).join('')}</select><button class="btn small" id="a_sh" type="button">${t('share')}</button></div>
+  <h3 style="margin-top:18px">${t('schedule')}</h3>
+  <div class="grid2"><div><label for="a_ip">${t('principal')}</label><select id="a_ip"><option value="">${t('choose')}</option>${principals.map(p=>`<option value="${esc(p.uid)}">${esc(p.company||p.name)}</option>`).join('')}</select></div>
+  <div><label for="a_w">${t('when')}</label><input id="a_w" type="datetime-local"></div></div>
+  <div style="margin-top:10px"><label for="a_ml">${t('meetLink')}</label><div class="row"><input id="a_ml" placeholder="https://meet.google.com/…" style="flex:1"><a class="btn small meet" href="https://meet.google.com/new" target="_blank" rel="noopener">${t('makeMeet')}</a></div><p class="muted">${t('makeMeetHint')}</p></div>
+  <div><label for="a_in">${t('notes')}</label><input id="a_in"></div>
+  <button class="btn gold" id="a_iv" type="button" style="margin-top:10px">${t('create')}</button><span id="a_im"></span>`;
+}
+function wireAdminCrewTools(c, principals) {
+  const ref = doc(db,'crews',c.uid);
+  $('#a_save').addEventListener('click', async () => { try { await updateDoc(ref, {status: $('#a_st').value, adminNote: $('#a_nt').value.trim()}); $('#a_m').textContent = ' ✓ ' + t('saved'); } catch (x) { $('#a_m').textContent = ' ' + errText(x); } });
+  $('#a_sh').addEventListener('click', async () => { const p = $('#a_pr').value; if (!p) return; await updateDoc(ref, {sharedWith: arrayUnion(p)}); dlg.close(); renderAdmin(); });
+  document.querySelectorAll('[data-un]').forEach(b => b.addEventListener('click', async () => { await updateDoc(ref, {sharedWith: arrayRemove(b.dataset.un)}); dlg.close(); renderAdmin(); }));
+  $('#a_iv').addEventListener('click', async () => { const p = principals.find(x=>x.uid===$('#a_ip').value); const w = $('#a_w').value; const ml = $('#a_ml').value.trim();
+    if (!p || !w) { $('#a_im').textContent = ' ' + t('choose'); return; }
+    if (ml && !/^https:\/\/meet\.google\.com\//.test(ml)) { $('#a_im').textContent = ' https://meet.google.com/…'; return; }
+    try { await addDoc(collection(db,'interviews'), { crewUid: c.uid, crewName: c.name, principalUid: p.uid, principalName: p.company||p.name, when: w + ':00+08:00', meetLink: ml, note: $('#a_in').value.trim(), status: 'terjadwal', createdAt: serverTimestamp() });
+      await updateDoc(ref, {status: 'interview', sharedWith: arrayUnion(p.uid)}); dlg.close(); ADMIN_TAB='int'; renderAdmin(); }
+    catch (x) { $('#a_im').textContent = ' ' + errText(x); } });
+}
+</script>
+</body>
+</html>
