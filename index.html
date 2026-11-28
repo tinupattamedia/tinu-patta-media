@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://osc-crew.com/img/logo-osc-600.png">
 <meta property="og:locale" content="id_ID">
 <meta property="og:locale:alternate" content="en_US">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "PT Osher Samudra Crewing", "alternateName": "OSC Crewing", "url": "https://osc-crew.com/", "logo": "https://osc-crew.com/img/logo-osc-600.png", "email": "recruitment@osc-crew.com", "telephone": "+62-857-5304-6384", "address": {"@type": "PostalAddress", "addressLocality": "Balikpapan", "addressRegion": "Kalimantan Timur", "addressCountry": "ID"}, "founder": {"@type": "Person", "name": "Martinus Sumule Patta"}, "sameAs": ["https://www.instagram.com/osc.crewing/", "https://www.facebook.com/profile.php?id=61596451633709", "https://www.youtube.com/@tinupatta37"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "PT Osher Samudra Crewing", "alternateName": "OSC Crewing", "url": "https://osc-crew.com/", "logo": "https://osc-crew.com/img/logo-osc-600.png", "email": "recruitment@osc-crew.com", "telephone": "+62-857-5304-6384", "address": {"@type": "PostalAddress", "addressLocality": "Balikpapan", "addressRegion": "Kalimantan Timur", "addressCountry": "ID"}, "founder": {"@type": "Person", "name": "Martinus Sumule Patta"}, "sameAs": ["https://www.instagram.com/osc.crewing/", "https://www.facebook.com/profile.php?id=61596451633709", "https://www.youtube.com/@tinupatta37", "https://www.tiktok.com/@osc.crewing"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -126,6 +126,8 @@ footer{padding-bottom:96px}
 dialog#installHelp{max-width:min(460px,92vw);border:0;border-radius:16px;padding:28px;background:var(--bg);color:var(--ink);box-shadow:0 30px 70px rgba(3,10,40,.45);border-top:5px solid var(--gold)}
 dialog#installHelp::backdrop{background:rgba(6,18,46,.6)}
 dialog#installHelp p{font-size:16px}
+.embed.tt{min-height:0}
+.embed.tt blockquote{margin:0!important;max-width:none!important}
 </style>
 </head>
 <body>
@@ -210,10 +212,16 @@ dialog#installHelp p{font-size:16px}
   <h2 data-i18n="media_h">Kabar terbaru dari kanal OSC</h2>
   <p data-i18n="media_lead" class="lead">Konten di bawah ini diambil langsung dari akun resmi OSC.</p>
   <div class="media">
-    <article class="chan yt">
+    <div class="stackcol">
+      <article class="chan yt">
       <header><span class="dot" style="background:#ff0000"></span><strong>YouTube</strong><a href="https://www.youtube.com/@tinupatta37" target="_blank" rel="noopener">Subscribe</a></header>
       <div class="embed" data-src="https://www.youtube.com/embed/videoseries?list=PLLYzLLR0IWSo&amp;rel=0" data-title="Video OSC terbaru" data-link="https://www.youtube.com/@tinupatta37" data-name="YouTube"></div>
     </article>
+      <article class="chan">
+        <header><span class="dot" style="background:#111"></span><strong>TikTok @osc.crewing</strong><a href="https://www.tiktok.com/@osc.crewing" target="_blank" rel="noopener" data-i18n="follow">Ikuti</a></header>
+        <div class="embed tt" id="ttembed" data-link="https://www.tiktok.com/@osc.crewing" data-name="TikTok"></div>
+      </article>
+    </div>
     <div class="stackcol">
       <article class="chan">
         <header><span class="dot" style="background:#d62976"></span><strong>Instagram @osc.crewing</strong><a href="https://www.instagram.com/osc.crewing/" target="_blank" rel="noopener">Follow</a></header>
@@ -251,6 +259,7 @@ dialog#installHelp p{font-size:16px}
     <li><a class="wa-link" href="https://wa.me/6285753046384?text=Halo%20OSC%2C%20saya%20ingin%20bertanya." target="_blank" rel="noopener">WhatsApp <span>+62 857-5304-6384</span></a></li>
     <li><a href="https://www.instagram.com/osc.crewing/" target="_blank" rel="noopener">Instagram <span>@osc.crewing</span></a></li>
     <li><a class="fbl" href="https://www.facebook.com/profile.php?id=61596451633709" target="_blank" rel="noopener">Facebook <span data-i18n="fbpage">Halaman OSC</span></a></li>
+    <li><a href="https://www.tiktok.com/@osc.crewing" target="_blank" rel="noopener">TikTok <span>@osc.crewing</span></a></li>
     <li><a href="https://www.youtube.com/@tinupatta37" target="_blank" rel="noopener">YouTube <span>@tinupatta37</span></a></li>
     <li><a href="https://linkedin.com/in/tinupatta" target="_blank" rel="noopener">LinkedIn <span>Martinus S. Patta</span></a></li>
     <li><a href="https://www.instagram.com/tinu_patta/" target="_blank" rel="noopener">Founder <span>@tinu_patta</span></a></li>
@@ -378,6 +387,13 @@ for (const el of document.querySelectorAll('.embed')) {
   }
 }
 
+const tte = document.getElementById('ttembed');
+if (hosted) {
+  tte.innerHTML = '<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@osc.crewing" data-unique-id="osc.crewing" data-embed-type="creator" style="min-width:288px"><section><a target="_blank" rel="noopener" href="https://www.tiktok.com/@osc.crewing?refer=creator_embed">@osc.crewing</a></section></blockquote>';
+  const sc = document.createElement('script'); sc.async = true; sc.src = 'https://www.tiktok.com/embed.js'; document.body.appendChild(sc);
+} else {
+  tte.innerHTML = '<div class="fallback"><h3>TikTok</h3><a class="btn" href="https://www.tiktok.com/@osc.crewing" target="_blank" rel="noopener">@osc.crewing</a></div>';
+}
 document.getElementById('yr').textContent = new Date().getFullYear();
 
 const cp = document.getElementById('copy');
